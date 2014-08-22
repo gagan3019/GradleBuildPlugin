@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile 'javax.mail:mail:1.4.7'
+    compile 'com.android.tools.build:gradle:0.12+'
+    compile 'org.tmatesoft.svnkit:svnkit:1.8.5'
+}
+
+group = 'org.gagan'
+version = '1.0-SNAPSHOT'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
